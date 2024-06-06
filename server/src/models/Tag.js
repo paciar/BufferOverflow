@@ -3,6 +3,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+/**
+ * Tag
+ * - name: The name of the tag.
+ * - owner: The user who created the tag.
+ */
+
 var TagSchema = new Schema({
     name:
     {

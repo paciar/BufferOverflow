@@ -3,12 +3,22 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+/**
+ * Comment
+ * - text: The text of the comment.
+ * - owner: The user who posted the comment.
+ * - datePosted: The date and time the comment was posted.
+ * - numVotes: The number of votes the comment has received.
+ * - associatedQuestion: The question the comment is associated with, if any.
+ * - associatedAnswer: The answer the comment is associated with, if any.
+ */
+
 var CommentSchema = new Schema({
     text:
     {
         type: String,
         required: true,
-        maxLength: 200 // Previously 140
+        maxLength: 250 // Previously 140
     },
     owner: // Previously 'commented_by'
     {

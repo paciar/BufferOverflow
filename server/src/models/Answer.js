@@ -3,11 +3,21 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+/**
+ * Answer
+ * - text: The text of the answer.
+ * - owner: The user who posted the answer.
+ * - datePosted: The date and time the answer was posted.
+ * - numVotes: The number of votes the answer has received.
+ * - associatedQuestion: The question the answer is associated with.
+ */
+
 var AnswerSchema = new Schema({
     text:
     {
         type: String,
-        required: true
+        required: true,
+        maxLength: 10000
     },
     owner: // Previously 'ans_by'
     {

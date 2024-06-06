@@ -3,6 +3,16 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+/**
+ * User
+ * - email: The email address of the user.
+ * - username: The username of the user.
+ * - passwordHash: The hashed password of the user.
+ * - dateJoined: The date and time the user joined the platform.
+ * - admin: A boolean flag indicating if the user is an admin.
+ * - reputation: The reputation score of the user.
+ */
+
 var UserSchema = new Schema({
     email:
     {
@@ -20,7 +30,7 @@ var UserSchema = new Schema({
         type: String,
         required: true
     },
-    dateJoined:
+    dateJoined: // Previously 'registration_date_time'
     {
         type: Date,
         default: Date.now

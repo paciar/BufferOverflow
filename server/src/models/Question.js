@@ -3,6 +3,18 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+/**
+ * Question
+ * - title: The title of the question.
+ * - summary: A brief summary of the question.
+ * - text: The full text of the question.
+ * - tags: The tags associated with the question.
+ * - owner: The user who posted the question.
+ * - datePosted: The date and time the question was posted.
+ * - numViews: The number of views the question has received.
+ * - numVotes: The number of votes the question has received.
+ */
+
 var QuestionSchema = new Schema({
     title:
     {
@@ -28,8 +40,7 @@ var QuestionSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Tag'
         }],
-        required: true,
-        validate: [validateTags, 'A question must have between 1 and 5 tags.']
+        required: true
     },
 
     // Previously included references to answers and comments, but will be easier to query them separately.
@@ -60,9 +71,5 @@ var QuestionSchema = new Schema({
 
     // For future implementation: include a list of users who have voted on the question to prevent multiple votes.
 });
-
-function validateTags(tags) {
-    return tags.length > 0 && tags.length <= 5;
-}
 
 module.exports = mongoose.model('Question', QuestionSchema);
