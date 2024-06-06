@@ -2,7 +2,7 @@ import './App.css'
 
 function App() {
   return (
-    <div className='BufferOverflow-wrapper'>
+    <div className='main-wrapper'>
       <h1>Welcome to BufferOverflow!</h1>
     </div>
   )
