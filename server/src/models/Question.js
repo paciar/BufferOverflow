@@ -10,7 +10,7 @@ var Schema = mongoose.Schema;
  * - text: The full text of the question.
  * - tags: The tags associated with the question.
  * - owner: The user who posted the question.
- * - datePosted: The date and time the question was posted.
+ * - createdAt: The date and time the question was posted.
  * - numViews: The number of views the question has received.
  * - numVotes: The number of votes the question has received.
  */
@@ -44,8 +44,8 @@ var QuestionSchema = new Schema({
     },
 
     // Previously included references to answers and comments, but will be easier to query them separately.
-    // i.e. Answer.findAll({associatedQuestion: question._id}).sort({datePosted: -1})
-    // i.e. Comment.findAll({associatedQuestion: question._id}).sort({datePosted: -1})
+    // i.e. Answer.findAll({associatedQuestion: question._id}).sort({createdAt: -1})
+    // i.e. Comment.findAll({associatedQuestion: question._id}).sort({createdAt: -1})
 
     owner: // Previously 'asked_by'
     {
@@ -53,7 +53,7 @@ var QuestionSchema = new Schema({
         ref: 'User',
         required: true
     },
-    datePosted: // Previously 'ask_date_time'
+    createdAt: // Previously 'ask_date_time'
     {
         type: Date,
         default: Date.now

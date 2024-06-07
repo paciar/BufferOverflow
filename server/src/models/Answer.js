@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
  * Answer
  * - text: The text of the answer.
  * - owner: The user who posted the answer.
- * - datePosted: The date and time the answer was posted.
+ * - createdAt: The date and time the answer was posted.
  * - numVotes: The number of votes the answer has received.
  * - associatedQuestion: The question the answer is associated with.
  */
@@ -25,14 +25,14 @@ var AnswerSchema = new Schema({
         ref: 'User',
         required: true
     },
-    datePosted: // Previously 'ans_date_time'
+    createdAt: // Previously 'ans_date_time'
     {
         type: Date,
         default: Date.now
     },
 
     // Previously included references to comments, but will be easier to query them separately.
-    // i.e. Comment.findAll({associatedAnswer: answer._id}).sort({datePosted: -1})
+    // i.e. Comment.findAll({associatedAnswer: answer._id}).sort({createdAt: -1})
 
     numVotes: // Previously 'votes'
     {

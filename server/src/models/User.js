@@ -8,7 +8,7 @@ var Schema = mongoose.Schema;
  * - email: The email address of the user.
  * - username: The username of the user.
  * - passwordHash: The hashed password of the user.
- * - dateJoined: The date and time the user joined the platform.
+ * - createdAt: The date and time the user joined the platform.
  * - admin: A boolean flag indicating if the user is an admin.
  * - reputation: The reputation score of the user.
  */
@@ -30,7 +30,7 @@ var UserSchema = new Schema({
         type: String,
         required: true
     },
-    dateJoined: // Previously 'registration_date_time'
+    createdAt: // Previously 'registration_date_time'
     {
         type: Date,
         default: Date.now
