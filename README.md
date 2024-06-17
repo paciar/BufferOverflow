@@ -1,7 +1,7 @@
 # BufferOverflow
 A full-stack clone of StackOverflow, a Q&A website used by developers to post and answer programming-related questions. Built using MongoDB, Express.js, React, and Node.js.
 
-Originally a term programming project for CSE316 (Fundamentals of Software Development), I have taken the time to clean up the code for readability as well as optimize any issues I had not thought about beforehand when first creating the project. I have also taken the opportunity to go about rewriting the application with TypeScript and Tailwind CSS, as well as deploying the application. However, rewriting and deployment are both still a work in progress.
+This project was originally written alongside my CSE316 partner, [Eli](https://github.com/EliBui), as a term programming project for CSE316 (Fundamentals of Software Development). I have taken the time to clean up the code for readability as well as optimize any issues I had not thought about beforehand when first creating the project. I have also taken the opportunity to go about rewriting the application with TypeScript and Tailwind CSS, as well as deploying the application. However, rewriting and deployment are both still a work in progress.
 
 ## Features
 - **User Registration/Authentication:** Users can register new accounts and log into/out of existing accounts. Implemented using `express-session` and `bcrypt` libraries to support secure account management. Users can also browse as a guest with limited permissions.
@@ -11,6 +11,14 @@ Originally a term programming project for CSE316 (Fundamentals of Software Devel
 - **Voting:** Registered users can upvote/downvote questions, answers, and comments.
 
 ## Changelog
+### 6/17/24
+- Configured `server` code with TypeScript.
+- Added `accepted` (`Answer` only), `upvotedBy`, and `downvotedBy` attributes to `Answer`, `Comment`, and `Question` models in `./server/src/models/`.
+- Added backend routing and modularized endpoints in `./server/src/routes/`.
+### 6/6/24
+- Added `description` field to Tag schema.
+- Added basic code to start server on port 8000 in `server.js`.
+- Added TanStack Query dependencies to client.
 ### 6/5/24
 - Reconfigured client directory to use Vite as application bundler and include TypeScript support.
 - Migrated and updated model schemas from original project in `server/src/models`.
