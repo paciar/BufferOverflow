@@ -49,9 +49,25 @@ var CommentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Answer',
         default: null
-    }
+    },
 
     // For future implementation: include a list of users who have voted on the comment to prevent multiple votes.
+    upvotedBy:
+    {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        default: []
+    },
+    downvotedBy:
+    {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        default: []
+    }
 });
 
 module.exports = mongoose.model('Comment', CommentSchema);

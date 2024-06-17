@@ -67,9 +67,25 @@ var QuestionSchema = new Schema({
     {
         type: Number,
         default: 0
-    }
+    },
 
     // For future implementation: include a list of users who have voted on the question to prevent multiple votes.
+    upvotedBy:
+    {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        default: []
+    },
+    downvotedBy:
+    {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        default: []
+    }
 });
 
 module.exports = mongoose.model('Question', QuestionSchema);

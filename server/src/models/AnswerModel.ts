@@ -44,10 +44,32 @@ var AnswerSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Question',
         required: true
-    }
+    },
 
     // For future implementation: 'accepted' field to mark the answer as the accepted answer to the question.
-    // Could also include a list of users who have voted on the answer to prevent multiple votes.
+    accepted:
+    {
+        type: Boolean,
+        default: false
+    },
+
+    // Could also include a list of users who have upvoted/downvoted on the answer to prevent multiple votes.
+    upvotedBy:
+    {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        default: []
+    },
+    downvotedBy:
+    {
+        type: [{
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }],
+        default: []
+    }
 });
 
 module.exports = mongoose.model('Answer', AnswerSchema);
